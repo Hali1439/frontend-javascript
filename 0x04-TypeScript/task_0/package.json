@@ -1,57 +1,32 @@
-// 1. Define the Student interface
-interface Student {
-  firstName: string;
-  lastName: string;
-  age: number;
-  location: string;
+{
+  "name": "typescript_dependencies",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start-dev": "webpack-dev-server --open",
+    "build": "webpack",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/plugin-proposal-export-default-from": "^7.5.2",
+    "@babel/preset-typescript": "^7.7.2",
+    "@types/jest": "^24.0.23",
+    "@typescript-eslint/eslint-plugin": "^2.4.0",
+    "@typescript-eslint/parser": "^2.4.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "fork-ts-checker-webpack-plugin": "^1.5.1",
+    "html-webpack-plugin": "^3.2.0",
+    "jest": "^24.9.0",
+    "source-map": "^0.7.3",
+    "ts-jest": "^24.1.0",
+    "ts-loader": "^6.2.0",
+    "typescript": "^3.6.4",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.2"
+  }
 }
-
-// 2. Create two student objects
-const student1: Student = {
-  firstName: "Halima",
-  lastName: "Muktar",
-  age: 28,
-  location: "Addis Ababa",
-};
-
-const student2: Student = {
-  firstName: "John",
-  lastName: "Doe",
-  age: 30,
-  location: "Nairobi",
-};
-
-// 3. Store them in an array
-const studentsList: Student[] = [student1, student2];
-
-// 4. Create and render a table
-const table = document.createElement("table");
-table.border = "1";
-
-// Create the header row
-const headerRow = document.createElement("tr");
-const headerFirstName = document.createElement("th");
-const headerLocation = document.createElement("th");
-headerFirstName.textContent = "First Name";
-headerLocation.textContent = "Location";
-headerRow.appendChild(headerFirstName);
-headerRow.appendChild(headerLocation);
-table.appendChild(headerRow);
-
-// Loop through students and create rows
-studentsList.forEach((student) => {
-  const row = document.createElement("tr");
-
-  const firstNameCell = document.createElement("td");
-  firstNameCell.textContent = student.firstName;
-
-  const locationCell = document.createElement("td");
-  locationCell.textContent = student.location;
-
-  row.appendChild(firstNameCell);
-  row.appendChild(locationCell);
-  table.appendChild(row);
-});
-
-// Append the table to the body
-document.body.appendChild(table);
