@@ -52,3 +52,36 @@ function createEmployee(salary: number | string): Director | Teacher {
 console.log(createEmployee(200));    // Teacher
 console.log(createEmployee(1000));   // Director
 console.log(createEmployee('$500')); // Director
+
+// ✅ Task 6 - isDirector type predicate
+export function isDirector(employee: Teacher | Director): employee is Director {
+  return (employee as Director).workDirectorTasks !== undefined;
+}
+
+// ✅ Task 6 - executeWork function
+export function executeWork(employee: Teacher | Director): string {
+  if (isDirector(employee)) {
+    return employee.workDirectorTasks();
+  } else {
+    return employee.workTeacherTasks();
+  }
+}
+
+// Example Test Cases
+console.log(executeWork(createEmployee(200)));   // Getting to work
+console.log(executeWork(createEmployee(1000)));  // Getting to director tasks
+
+// ✅ Task 7 - String Literal Type
+type Subjects = 'Math' | 'History';
+
+export function teachClass(todayClass: Subjects): string {
+  if (todayClass === 'Math') {
+    return 'Teaching Math';
+  }
+  return 'Teaching History';
+}
+
+// Example Test Cases
+console.log(teachClass('Math'));     // Teaching Math
+console.log(teachClass('History'));  // Teaching History
+
