@@ -1,1 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "outDir": "./dist",
+    "rootDir": "./js",
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true
+  },
+  "include": ["js/**/*.ts"],
+  "exclude": ["node_modules"]
+}
 
