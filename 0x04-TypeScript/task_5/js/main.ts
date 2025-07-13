@@ -1,24 +1,17 @@
 export interface MajorCredits {
+  _majorCreditBrand: void;
   credits: number;
-  _majorCreditBrand: void; // branding to make it nominal
 }
 
 export interface MinorCredits {
+  _minorCreditBrand: void;
   credits: number;
-  _minorCreditBrand: void; // branding to make it nominal
 }
 
 export function sumMajorCredits(subject1: MajorCredits, subject2: MajorCredits): MajorCredits {
-  return {
-    credits: subject1.credits + subject2.credits,
-    _majorCreditBrand: undefined
-  };
+  return { credits: subject1.credits + subject2.credits } as MajorCredits;
 }
 
 export function sumMinorCredits(subject1: MinorCredits, subject2: MinorCredits): MinorCredits {
-  return {
-    credits: subject1.credits + subject2.credits,
-    _minorCreditBrand: undefined
-  };
+  return { credits: subject1.credits + subject2.credits } as MinorCredits;
 }
-
